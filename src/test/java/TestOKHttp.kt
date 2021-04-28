@@ -1,7 +1,7 @@
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okio.Okio
-import org.junit.Test
+import okio.buffer
+import okio.sink
 import java.io.File
 
 class TestOKHttp {
@@ -36,9 +36,9 @@ class TestOKHttp {
         val res = client.newCall(req).execute()
         val file = File("D:\\Users\\jonas\\Documents\\GitHub\\serverstarter\\test/Pam's HarvestCraft 1.12.2u.jar")
         println("file = ${file.absolutePath}")
-        val sink = Okio.buffer(Okio.sink(file))
+        val sink = file.sink().buffer()
 
-        val source = res.body()?.source() ?: return
+        val source = res.body?.source() ?: return
         sink.writeAll(source)
         sink.close()
 
