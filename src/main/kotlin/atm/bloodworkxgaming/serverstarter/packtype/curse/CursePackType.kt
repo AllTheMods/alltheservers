@@ -200,7 +200,7 @@ open class CursePackType(private val configFile: ConfigFile) : AbstractZipbasedP
 
                 if (!res.isSuccessful)
                     throw IOException("Request to $url was not successful.")
-                val body = res.body() ?: throw IOException("Request to $url returned a null body.")
+                val body = res.body ?: throw IOException("Request to $url returned a null body.")
 
                 val jsonRes = JsonParser().parse(body.string()).asJsonObject
                 LOGGER.info("Response from manifest query: $jsonRes", true)
