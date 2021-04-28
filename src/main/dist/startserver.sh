@@ -8,7 +8,7 @@ if [[ -f serverstarter-@@serverstarter-libVersion@@.jar ]]; then
     exit 0
 else
     # download missing serverstarter jar
-    URL="https://github.com/AllTheMods/alltheservers/releases/download/@@serverstarter-libVersion@@/serverstarter-@@serverstarter-libVersion@@.jar"
+    URL="https://github.com/AllTheMods/alltheservers/releases/download/v@@serverstarter-libVersion@@/serverstarter-@@serverstarter-libVersion@@.jar"
 
     if command -v wget &> /dev/null; then
         echo "DEBUG: (wget) Downloading ${URL}"
